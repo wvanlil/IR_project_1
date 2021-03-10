@@ -1,0 +1,13 @@
+CUDA_VISIBLE_DEVICES=0 \
+python3 inference2.py \
+        -task ranking \
+        -model bert \
+        -max_input 1290 \
+        -test queries=../data_analysis/data/queries.tsv,docs=../anserini/collections/msmarco-passage/collection.tsv,trec=../data_analysis/data/trec_run.trec \
+        -vocab bert-base-uncased \
+        -pretrain bert-base-uncased \
+        -checkpoint ./checkpoints/bert-base.bin \
+        -res ./results/bert-base_msmarco-dev3.trec \
+        -max_query_len 32 \
+        -max_doc_len 221 \
+        -batch_size 256
